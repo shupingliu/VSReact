@@ -15,13 +15,18 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(
-      <AppContainer
-        component={require('./containers/App').default}
-        props={{ store }}
-      />,
-      document.getElementById('root')
-    );
-});
+    module.hot.accept('./containers/App', () => {
+        const NewApp = require('./containers/App').default;
+        render(
+      //<AppContainer
+      //  component={require('./containers/App').default}
+      //  props={{ store }}
+      ///>,
+
+            <AppContainer>
+                <NewApp store={store}/>
+            </AppContainer>,
+            document.getElementById('root')
+        );
+    });
 }

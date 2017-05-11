@@ -4,56 +4,39 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var pkg = require('./package.json');
 
-// bundle dependencies in separate vendor bundle
-var vendorPackages = Object.keys(pkg.dependencies).filter(function (el) {
-  return el.indexOf('font') === -1; // exclude font packages from vendor bundle
-});
-
 module.exports = {
   devServer: {
     contentBase: './build',
     host: 'localhost',
     port: 3000
   },
-  entry: {
-    main: [
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
-      './app/index'
-    ],
-    vendor: vendorPackages
-  },
+  entry: [
+        // must be first entry to properly set public path
+        './app/webpack-public-path',
+        //'webpack-hot-middleware/client?reload=true',
+        //'webpack-dev-server/client?http://localhost:3000',
+        //'webpack/hot/only-dev-server',
+        'react-hot-loader/patch',
+        path.resolve(__dirname, 'app/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
+  ],
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: '[name].js'
+      path: path.join(__dirname, 'build'),
+      publicPath: '/',
+      filename: '[name].js'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      __API_URL__: JSON.stringify(process.env.API_URL || '//localhost:51407')
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js',
-      minChunks: Infinity
-    }),
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
+      new webpack.DefinePlugin({
+          __API_URL__: JSON.stringify(process.env.API_URL || '//localhost:51407')
+      }),
+      new webpack.NoEmitOnErrorsPlugin(),
+      new HtmlWebpackPlugin({
+          template: 'index.html'
+      }),
   ],
-  resolveLoader: {
-    'fallback': path.join(__dirname, 'node_modules')
-  },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/,
-      include: __dirname
-    }, {
-      test: /\.css?$/,
-      loaders: ['style', 'raw'],
-      include: __dirname
-    }]
+      rules: [
+          { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+          { test: /(\.css)$/, loaders: ['style-loader', 'css-loader?sourceMap'] }
+      ]
   }
 };
