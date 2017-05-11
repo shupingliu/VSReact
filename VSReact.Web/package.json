@@ -5,10 +5,13 @@
   "license": "MIT",
   "repository": "https://github.com/martijnboland/VSReact",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js --hot --progress --colors --devtool source-map",
+    "start": "npm-run-all --parallel start:webpack test:watch",
+    "start:webpack": "webpack-dev-server --config webpack.config.js --hot --progress --colors --devtool source-map",
     "build": "webpack --config webpack.config.js --progress --profile --colors",
     "prod": "webpack -p --config webpack.prod.config.js --progress --colors",
-    "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot"
+    "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot",
+    "test": "mocha --reporter progress tools/testSetup.js \"app/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -27,7 +30,10 @@
     "babel-preset-es2015-loose": "^6.1.3",
     "babel-preset-react": "6.3.13",
     "css-loader": "0.26.1",
+    "expect": "1.20.2",
     "babel-preset-stage-0": "^6.3.13",
+    "jsdom": "9.12.0",
+    "mocha": "3.3.0",
     "html-webpack-plugin": "2.17.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^4.5.2",

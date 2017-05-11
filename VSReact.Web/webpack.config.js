@@ -1,4 +1,4 @@
-/// <binding ProjectOpened='Hot' />
+/// <binding ProjectOpened='Hot, Watch - Development' />
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
