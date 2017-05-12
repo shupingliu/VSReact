@@ -6,7 +6,7 @@ var pkg = require('./package.json');
 
 module.exports = {
     devServer: {
-        historyApiFallback: true,
+        //historyApiFallback: true,
         contentBase: './build',
         host: 'localhost',
         port: 3000

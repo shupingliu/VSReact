@@ -5,7 +5,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <div className="jumbotron">
-                <h1>Redux Play Ground 123</h1>
+                <h1>Redux Play Ground</h1>
                 <p>React, Redux and React Router in ES6 for ultra-responsive web apps.</p>
                 <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
             </div>

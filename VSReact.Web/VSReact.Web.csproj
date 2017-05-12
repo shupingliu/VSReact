@@ -79,6 +79,8 @@
     <Content Include="app\Root.js" />
     <Content Include="app\routes.js" />
     <Content Include="app\styles\styles.css" />
+    <Content Include="server\app.js" />
+    <Content Include="server\index.js" />
     <Content Include="tools\testSetup.js" />
     <Content Include="app\webpack-public-path.js" />
     <Content Include="package.json" />
