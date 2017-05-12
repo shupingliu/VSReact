@@ -73,13 +73,12 @@
     <Content Include="app\components\about\AboutPage.js" />
     <Content Include="app\components\App.js" />
     <Content Include="app\components\common\Header.js" />
+    <Content Include="app\components\course\CoursesPage.js" />
     <Content Include="app\components\home\HomePage.js" />
+    <Content Include="app\index.js" />
     <Content Include="app\Root.js" />
+    <Content Include="app\routes.js" />
     <Content Include="app\styles\styles.css" />
-    <Content Include="index.js" />
-    <Content Include="index.test.js" />
-    <Content Include="Root.js" />
-    <Content Include="routes.js" />
     <Content Include="tools\testSetup.js" />
     <Content Include="app\webpack-public-path.js" />
     <Content Include="package.json" />

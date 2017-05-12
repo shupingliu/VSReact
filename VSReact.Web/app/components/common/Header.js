@@ -1,14 +1,16 @@
 ﻿import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 //import LoadingDots from './LoadingDots';
 
-const Header = ({loading}) => {
+const Header = () => {
 
     return (
         <nav>
-            <IndexLink to="/" activeClassName="active">Home2</IndexLink>
+            <NavLink exact to="/" activeClassName="active">Home</NavLink>
             {" | "}
-            <Link to="/about" activeClassName="active">About</Link>
+            <NavLink to="/courses" activeClassName="active">Courses</NavLink>
+            {" | "}
+            <NavLink to="/about" activeClassName="active">About</NavLink>
         </nav>
     );
 };

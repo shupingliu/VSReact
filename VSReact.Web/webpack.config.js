@@ -5,10 +5,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var pkg = require('./package.json');
 
 module.exports = {
-  devServer: {
-    contentBase: './build',
-    host: 'localhost',
-    port: 3000
+    devServer: {
+        historyApiFallback: true,
+        contentBase: './build',
+        host: 'localhost',
+        port: 3000
   },
   entry: [
         // must be first entry to properly set public path

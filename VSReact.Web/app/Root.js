@@ -1,10 +1,12 @@
 ﻿import React, { Component } from 'react';
-import { Router, browserHistory } from 'react-router';
+//import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 export default class Root extends Component {
     render() {
         return (
-            <Router history={browserHistory}>
+            <Router>
                 {this.props.routes()}
             </Router>
         );

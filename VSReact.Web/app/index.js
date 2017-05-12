@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import configureStore from './store/configureStore';
 //import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
 import Root from './Root';
 import routes from './routes';
 import { AppContainer } from 'react-hot-loader';
