@@ -70,28 +70,23 @@
   <ItemGroup>
     <Content Include=".babelrc" />
     <Content Include="app\actions\TodoActionsAsyncBackend.js" />
-    <Content Include="app\containers\DevTools.js" />
-    <Content Include="app\index.js" />
-    <Content Include="app\reducers\todosAsyncBackend.js" />
-    <Content Include="app\store\configureStore.js" />
+    <Content Include="app\components\about\AboutPage.js" />
+    <Content Include="app\components\App.js" />
+    <Content Include="app\components\common\Header.js" />
+    <Content Include="app\components\home\HomePage.js" />
+    <Content Include="app\Root.js" />
+    <Content Include="app\styles\styles.css" />
+    <Content Include="index.js" />
+    <Content Include="index.test.js" />
+    <Content Include="Root.js" />
+    <Content Include="routes.js" />
     <Content Include="tools\testSetup.js" />
     <Content Include="app\webpack-public-path.js" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\actions\TodoActions.js" />
-    <Content Include="app\components\Footer.js" />
-    <Content Include="app\components\Header.js" />
-    <Content Include="app\components\MainSection.js" />
-    <Content Include="app\components\TodoItem.js" />
-    <Content Include="app\components\TodoTextInput.js" />
-    <Content Include="app\constants\ActionTypes.js" />
-    <Content Include="app\constants\TodoFilters.js" />
-    <Content Include="app\containers\App.js" />
-    <Content Include="app\containers\TodoApp.js" />
     <Content Include="index.html" />
-    <Content Include="app\reducers\index.js" />
-    <Content Include="app\reducers\todos.js" />
     <Content Include="webpack.prod.config.js" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
@@ -106,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\index.test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\constants\" />
+    <Folder Include="app\containers\" />
+    <Folder Include="app\reducers\" />
+    <Folder Include="app\store\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
