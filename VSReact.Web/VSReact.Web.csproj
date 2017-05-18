@@ -69,15 +69,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".babelrc" />
-    <Content Include="app\actions\TodoActionsAsyncBackend.js" />
+    <Content Include="app\actions\actionTypes.js" />
+    <Content Include="app\actions\courseActions.js" />
     <Content Include="app\components\about\AboutPage.js" />
     <Content Include="app\components\App.js" />
     <Content Include="app\components\common\Header.js" />
     <Content Include="app\components\course\CoursesPage.js" />
     <Content Include="app\components\home\HomePage.js" />
     <Content Include="app\index.js" />
+    <Content Include="app\reducers\courseReducer.js" />
+    <Content Include="app\reducers\index.js" />
     <Content Include="app\Root.js" />
     <Content Include="app\routes.js" />
+    <Content Include="app\store\configureStore.js" />
     <Content Include="app\styles\styles.css" />
     <Content Include="server\app.js" />
     <Content Include="server\index.js" />
@@ -86,7 +90,6 @@
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\actions\TodoActions.js" />
     <Content Include="index.html" />
     <Content Include="webpack.prod.config.js" />
     <Content Include="webpack.config.js" />
@@ -106,8 +109,6 @@
   <ItemGroup>
     <Folder Include="app\constants\" />
     <Folder Include="app\containers\" />
-    <Folder Include="app\reducers\" />
-    <Folder Include="app\store\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
