@@ -7,14 +7,14 @@ import { Provider } from 'react-redux';
 import Root from './Root';
 import routes from './routes';
 import { AppContainer } from 'react-hot-loader';
-//import { loadCourses } from './actions/courseActions';
+import { loadCourses } from './actions/courseActions';
 //import { loadAuthors } from './actions/authorActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 //import '../node_modules/toastr/build/toastr.min.css';
 
 const store = configureStore();
-//store.dispatch(loadCourses());
+store.dispatch(loadCourses());
 //store.dispatch(loadAuthors());
 
 //render(

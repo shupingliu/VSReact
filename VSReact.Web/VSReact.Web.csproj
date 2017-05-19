@@ -71,9 +71,14 @@
     <Content Include=".babelrc" />
     <Content Include="app\actions\actionTypes.js" />
     <Content Include="app\actions\courseActions.js" />
+    <Content Include="app\api\delay.js" />
+    <Content Include="app\api\mockAuthorApi.js" />
+    <Content Include="app\api\mockCourseApi.js" />
     <Content Include="app\components\about\AboutPage.js" />
     <Content Include="app\components\App.js" />
     <Content Include="app\components\common\Header.js" />
+    <Content Include="app\components\course\CourseList.js" />
+    <Content Include="app\components\course\CourseListRow.js" />
     <Content Include="app\components\course\CoursesPage.js" />
     <Content Include="app\components\home\HomePage.js" />
     <Content Include="app\index.js" />
