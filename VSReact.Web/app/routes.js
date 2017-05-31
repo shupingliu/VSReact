@@ -5,7 +5,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import Header from './components/common/Header';
-//import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
+import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
 
 const routes = () => {
     return (
@@ -13,6 +13,8 @@ const routes = () => {
             <Route component={Header} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/courses" component={CoursesPage} />
+            <Route exact path="/course" component={ManageCoursePage} />
+            <Route exact path="/course/:id" component={ManageCoursePage} />
             <Route exact path="/about" component={AboutPage} />
         </div>
     );

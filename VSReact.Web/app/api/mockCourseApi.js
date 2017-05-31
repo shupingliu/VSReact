@@ -76,15 +76,15 @@ class CourseApi {
             
                 if (course.id) {
                     const existingCourseIndex = courses.findIndex(a=> a.id == course.id);
-              courses.splice(existingCourseIndex, 1, course);
-            } else {
+                    courses.splice(existingCourseIndex, 1, course);
+                } else {
                     //Just simulating creation here.
                     //The server would generate ids and watchHref's for new courses in a real app.
                     //Cloning so copy returned is passed by value rather than by reference.
                     course.id = generateId(course);
                     course.watchHref = ` http://www.pluralsight.com/courses/${course.id}`;
-              courses.push(course);
-            }
+                    courses.push(course);
+                }
             
                 resolve(course);
             }, delay)    ;
