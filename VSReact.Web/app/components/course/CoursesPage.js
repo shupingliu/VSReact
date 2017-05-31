@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
-//import {browserHistory} from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 
 class CoursesPage extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
+    }
+
+    redirectToAddCoursePage() {
+        this.props.history.push('/course');
     }
 
     // normally keep the mark-up to a seperate file
@@ -17,6 +22,10 @@ class CoursesPage extends React.Component {
         return (
             <div>
                 <h1>Courses</h1>
+                <input type="submit"
+                    value="Add Course"
+                    className="btn btn-primary"
+                    onClick={this.redirectToAddCoursePage} />
                 <CourseList courses={courses}/>
             </div>
         );
@@ -40,5 +49,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CoursesPage));
 

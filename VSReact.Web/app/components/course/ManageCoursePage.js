@@ -5,6 +5,7 @@ import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import { authorsFormattedForDropdown } from '../../selectors/selectors';
 import toastr from 'toastr';
+import { withRouter } from 'react-router-dom';
 
 export class ManageCoursePage extends React.Component {
     constructor(props, context) {
@@ -16,67 +17,68 @@ export class ManageCoursePage extends React.Component {
             saving: false
         };
 
-        //this.updateCourseState = this.updateCourseState.bind(this);
-        //this.saveCourse = this.saveCourse.bind(this);
+        this.updateCourseState = this.updateCourseState.bind(this);
+        this.saveCourse = this.saveCourse.bind(this);
     }
 
-    //componentWillReceiveProps(nextProps) {
-    //    if (this.props.course.id != nextProps.course.id) {
-    //        // Necessary to populate form when existing course is loaded directly.
-    //        this.setState({ course: Object.assign({}, nextProps.course) });
-    //    }
-    //}
+    componentWillReceiveProps(nextProps) {
+        if (this.props.course.id != nextProps.course.id) {
+            // Necessary to populate form when existing course is loaded directly.
+            this.setState({ course: Object.assign({}, nextProps.course) });
+        }
+    }
 
-    //updateCourseState(event) {
-    //    const field = event.target.name;
-    //    let course = this.state.course;
-    //    course[field] = event.target.value;
-    //    return this.setState({ course: course });
-    //}
+    updateCourseState(event) {
+        const field = event.target.name;
+        let course = this.state.course;
+        course[field] = event.target.value;
+        return this.setState({ course: course });
+    }
 
-    //courseFormIsValid() {
-    //    let formIsValid = true;
-    //    let errors = {};
+    courseFormIsValid() {
+        let formIsValid = true;
+        let errors = {};
 
-    //    if (this.state.course.title.length < 5) {
-    //        errors.title = 'Title must be at least 5 characters.';
-    //        formIsValid = false;
-    //    }
+        if (this.state.course.title.length < 5) {
+            errors.title = 'Title must be at least 5 characters.';
+            formIsValid = false;
+        }
 
-    //    this.setState({ errors: errors });
-    //    return formIsValid;
-    //}
+        this.setState({ errors: errors });
+        return formIsValid;
+    }
 
 
-    //saveCourse(event) {
-    //    event.preventDefault();
+    saveCourse(event) {
+        event.preventDefault();
 
-    //    if (!this.courseFormIsValid()) {
-    //        return;
-    //    }
+        if (!this.courseFormIsValid()) {
+            return;
+        }
 
-    //    this.setState({ saving: true });
+        this.setState({ saving: true });
 
-    //    this.props.actions.saveCourse(this.state.course)
-    //        .then(() => this.redirect())
-    //        .catch(error => {
-    //            toastr.error(error);
-    //            this.setState({ saving: false });
-    //        });
-    //}
+        this.props.actions.saveCourse(this.state.course)
+            .then(() => this.redirect())
+            .catch(error => {
+                toastr.error(error);
+                this.setState({ saving: false });
+            });
+    }
 
-    //redirect() {
-    //    this.setState({ saving: false });
-    //    toastr.success('Course saved');
-    //    this.context.router.push('/courses');
-    //}
+    redirect() {
+        this.setState({ saving: false });
+        toastr.success('Course saved');
+        //this.context.router.push('/courses');
+        this.props.history.push('/courses');
+    }
 
     render() {
         return (
             <CourseForm
                 allAuthors={this.props.authors}
-                //onChange={this.updateCourseState}
-                //onSave={this.saveCourse}
+                onChange={this.updateCourseState}
+                onSave={this.saveCourse}
                 course={this.state.course}
                 errors={this.state.errors}
                 saving={this.state.saving}
@@ -88,28 +90,27 @@ export class ManageCoursePage extends React.Component {
 ManageCoursePage.propTypes = {
     course: PropTypes.object.isRequired,
     authors: PropTypes.array.isRequired,
-    //actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired
 };
 
 //Pull in the React Router context so router is available on this.context.router.
-//ManageCoursePage.contextTypes = {
-//    router: PropTypes.object
-//};
+ManageCoursePage.contextTypes = {
+    router: PropTypes.object
+};
 
 function getCourseById(courses, id) {
     const course = courses.filter(course => course.id == id);
-    if (course) return course[0]; //since filter returns an array, have to grab the first.
+    if (course.length) return course[0]; //since filter returns an array, have to grab the first.
     return null;
 }
 
 function mapStateToProps(state, ownProps) {
-    //const courseId = ownProps.params.id; // from the path `/course/:id`
-
+    const courseId = ownProps.match.params.id; // from the path `/course/:id`
     let course = { id: '', watchHref: '', title: '', authorId: '', length: '', category: '' };
 
-    //if (courseId && state.courses.length > 0) {
-    //    course = getCourseById(state.courses, courseId);
-    //}
+    if (courseId && state.courses.length > 0) {
+        course = getCourseById(state.courses, courseId);
+    }
 
     return {
         course: course,
@@ -123,4 +124,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ManageCoursePage));
