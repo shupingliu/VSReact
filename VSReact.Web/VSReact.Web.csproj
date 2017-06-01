@@ -82,7 +82,9 @@
     <Content Include="app\components\common\LoadingDots.js" />
     <Content Include="app\components\common\SelectInput.js" />
     <Content Include="app\components\common\TextInput.js" />
+    <Content Include="app\components\course\CourseForm.Enzyme.test.js" />
     <Content Include="app\components\course\CourseForm.js" />
+    <Content Include="app\components\course\CourseForm.ReactTestUtils.test.js" />
     <Content Include="app\components\course\CourseList.js" />
     <Content Include="app\components\course\CourseListRow.js" />
     <Content Include="app\components\course\CoursesPage.js" />

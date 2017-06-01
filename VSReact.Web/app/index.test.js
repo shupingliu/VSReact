@@ -5,9 +5,3 @@ describe('Our first test', () => {
 		expect(true).toEqual(true);
 	});
 });
-
-describe('Our 2nd test', () => {
-	it('should fail', () => {
-		expect(false).toEqual(true);
-	});
-});

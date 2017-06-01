@@ -11,7 +11,7 @@
     "build": "webpack --config webpack.config.js --progress --profile --colors",
     "prod": "webpack -p --config webpack.prod.config.js --progress --colors",
     "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot",
-    "test": "mocha --reporter progress tools/testSetup.js \"app/**/*.test.js\"",
+    "test": "mocha --reporter spec tools/testSetup.js \"app/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "0.26.1",
+    "enzyme": "2.8.2",
     "expect": "1.20.2",
     "file-loader": "0.8.5",
     "jsdom": "9.12.0",
@@ -52,6 +53,7 @@
     "open": "0.0.5",
     "postcss-loader": "1.2.1",
     "raw-loader": "^0.5.1",
+    "react-addons-test-utils": "15.5.1",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
