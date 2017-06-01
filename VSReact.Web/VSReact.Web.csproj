@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include=".babelrc" />
     <Content Include="app\actions\actionTypes.js" />
+    <Content Include="app\actions\ajaxStatusActions.js" />
     <Content Include="app\actions\authorActions.js" />
     <Content Include="app\actions\courseActions.js" />
     <Content Include="app\api\delay.js" />
@@ -78,6 +79,7 @@
     <Content Include="app\components\about\AboutPage.js" />
     <Content Include="app\components\App.js" />
     <Content Include="app\components\common\Header.js" />
+    <Content Include="app\components\common\LoadingDots.js" />
     <Content Include="app\components\common\SelectInput.js" />
     <Content Include="app\components\common\TextInput.js" />
     <Content Include="app\components\course\CourseForm.js" />
@@ -86,6 +88,7 @@
     <Content Include="app\components\course\CoursesPage.js" />
     <Content Include="app\components\course\ManageCoursePage.js" />
     <Content Include="app\components\home\HomePage.js" />
+    <Content Include="app\reducers\ajaxStatusReducer.js" />
     <Content Include="app\selectors\selectors.js" />
     <Content Include="app\index.js" />
     <Content Include="app\reducers\authorReducer.js" />
