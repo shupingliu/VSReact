@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,6 +73,7 @@
     <Content Include="app\actions\ajaxStatusActions.js" />
     <Content Include="app\actions\authorActions.js" />
     <Content Include="app\actions\courseActions.js" />
+    <Content Include="app\actions\courseActions.test.js" />
     <Content Include="app\api\delay.js" />
     <Content Include="app\api\mockAuthorApi.js" />
     <Content Include="app\api\mockCourseApi.js" />
@@ -89,8 +90,10 @@
     <Content Include="app\components\course\CourseListRow.js" />
     <Content Include="app\components\course\CoursesPage.js" />
     <Content Include="app\components\course\ManageCoursePage.js" />
+    <Content Include="app\components\course\ManageCoursePage.test.js" />
     <Content Include="app\components\home\HomePage.js" />
     <Content Include="app\reducers\ajaxStatusReducer.js" />
+    <Content Include="app\reducers\courseReducer.test.js" />
     <Content Include="app\selectors\selectors.js" />
     <Content Include="app\index.js" />
     <Content Include="app\reducers\authorReducer.js" />
@@ -99,7 +102,9 @@
     <Content Include="app\reducers\initialState.js" />
     <Content Include="app\Root.js" />
     <Content Include="app\routes.js" />
+    <Content Include="app\selectors\selectors.test.js" />
     <Content Include="app\store\configureStore.js" />
+    <Content Include="app\store\store.test.js" />
     <Content Include="app\styles\styles.css" />
     <Content Include="server\app.js" />
     <Content Include="server\index.js" />
