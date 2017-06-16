@@ -1,12 +1,6 @@
-﻿import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers';
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import thunk from 'redux-thunk';
-
-export default function configureStore(initialState) {  // initialState here is good for server side rendering function
-    return createStore(
-        rootReducer,
-        initialState,
-        applyMiddleware(thunk, reduxImmutableStateInvariant())
-    );
+﻿// dynamic imports aren't supported by ES6 and hence here we're using require instead of import
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./configureStore.prod');
+} else {
+    module.exports = require('./configureStore.dev');
 }

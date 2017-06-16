@@ -104,10 +104,14 @@
     <Content Include="app\routes.js" />
     <Content Include="app\selectors\selectors.test.js" />
     <Content Include="app\store\configureStore.js" />
+    <Content Include="app\store\configureStore.prod.js" />
+    <Content Include="app\store\configureStore.dev.js" />
     <Content Include="app\store\store.test.js" />
     <Content Include="app\styles\styles.css" />
     <Content Include="server\app.js" />
     <Content Include="server\index.js" />
+    <Content Include="tools\distServer.js" />
+    <Content Include="tools\srcServer.js" />
     <Content Include="tools\testSetup.js" />
     <Content Include="app\webpack-public-path.js" />
     <Content Include="package.json" />
@@ -164,7 +168,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51676</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51408/</IISUrl>
+          <IISUrl>http://localhost:3000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

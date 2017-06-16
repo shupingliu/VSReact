@@ -9,10 +9,12 @@
     "start:node-server": "node server",
     "start:dev-server": "webpack-dev-server --config webpack.config.js --hot --progress --colors --devtool source-map",
     "build": "webpack --config webpack.config.js --progress --profile --colors",
-    "prod": "webpack -p --config webpack.prod.config.js --progress --colors",
+    "build:prod": "webpack -p --config webpack.prod.config.js --progress --colors",
     "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot",
     "test": "mocha --reporter spec tools/testSetup.js \"app/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "run:prod": "babel-node tools/distServer.js",
+    "prod" : "npm-run-all build:prod run:prod"
   },
   "dependencies": {
     "babel-polyfill": "6.8.0",
